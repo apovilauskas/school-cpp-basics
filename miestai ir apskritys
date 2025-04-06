@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+
+struct apskritis{
+    std::string pav;
+    std::vector<std::string> miestai;
+    std::vector<int> populiacijos;
+    int maziausia(){
+        int min=INT_MAX;
+        for(int i=0; i<populiacijos.size(); i++){
+            min = std::min(populiacijos[i], min);
+        }
+        return min;
+    }
+    int viso(){
+        int viso = 0;
+        for(int i=0; i<populiacijos.size(); i++){
+            viso += populiacijos[i];
+        }
+        return viso;
+    }
+};
+
+int main()
+{
+    std::ifstream fd("U2.txt");
+    std::ofstream fr("U2rez.txt");
+    
+    int n;
+    fd >> n;
+    fd.ignore(80, '\n');
+    std::vector<apskritis> temp;
+    temp.resize(n);
+    
+    for(int i=0; i<n; i++){
+        char tempm[21], tempa[14];
+        int tpop;
+        
+        fd.get(tempm, 21);
+        temp[i].miestai.push_back(tempm);
+        fd.get(tempa, 14);
+        temp[i].pav = tempa;
+        fd >> tpop;
+        temp[i].populiacijos.push_back(tpop);
+        fd.ignore(100, '\n');
+    }
+    
+    for(int i=0; i<temp.size(); i++){
+        for(int j=0; j<temp.size()-1; j++){
+            if(temp[j].pav > temp[j+1].pav)std::swap(temp[j+1], temp[j]);
+        }
+    }
+    
+    //perkelimas i vektoriu be pasikartojimu
+    std::vector<apskritis> a;
+    a.push_back(temp[0]);
+    for(int i=1; i<temp.size(); i++){
+        if(temp[i].pav != temp[i-1].pav){
+            a.push_back(temp[i]);
+        }
+        else{
+            a.back().miestai.insert(a.back().miestai.end(), temp[i].miestai.begin(), temp[i].miestai.end());
+            a.back().populiacijos.insert(a.back().populiacijos.end(), temp[i].populiacijos.begin(), temp[i].populiacijos.end());
+        }
+    }
+   
+    for(int i=0; i<a.size(); i++){
+        for(int j=0; j<a.size()-1; j++){
+            if(a[j].maziausia() > a[j+1].maziausia())std::swap(a[j], a[j+1]);
+        }
+    }
+    
+    //isvedimas
+    fr << a.size() <<'\n';
+    for(int i=0; i<a.size(); i++){
+         fr << a[i].pav <<a[i].maziausia() << ' ' <<a[i].viso() <<'\n';
+           
+    }
+    
+    return 0;
+}
