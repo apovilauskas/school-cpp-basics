@@ -1,0 +1,14 @@
+Projektai ir taskai mazejimo tvarka
+ProjektasB 29
+ProjektasA 28
+ProjektasC 17
+
+Daugiausia desimtu turintys projektai:
+ProjektasA
+ProjektasB
+
+Daugiausia balu is viso gavo
+ProjektasB 29
+10 balu jis gavo 3 kartu 
+
+Bendri balai 74
