@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+
+void skaitymas(int &n, int&m, std::vector<std::vector<int>> &v){
+    std::ifstream fd("U1.txt");
+    fd >> n >> m;
+ v.resize(n, std::vector<int>(m, 0));
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            fd >> v[i][j];
+           
+             }
+        }
+
+}
+
+void rasymas(double &vidurkis, int &kiekis){ 
+    std::ofstream fr("U1rez.txt");
+        if(kiekis >0)fr << std::fixed << std::setprecision(3) << vidurkis * 1.0 / kiekis ;
+    else fr << "NO\n";
+}
+
+void skaiciavimas(std::vector<std::vector<int>> &v, int &kiekis, double&vidurkis){
+     for(int i=0; i<v.size(); i++){
+        for(int j=0; j<v[i].size(); j++){
+             if(v[i][j] < 0){
+            vidurkis+= v[i][j];
+            kiekis++;
+           
+             }
+        }
+    }
+    rasymas(vidurkis, kiekis);
+}
+
+
+
+int main()
+{
+    int n, m;
+    double vidurkis=0;
+    int kiekis=0;
+    std::vector<std::vector<int>> v;
+    skaitymas(n,m,v);
+    skaiciavimas(v,kiekis,vidurkis);
+
+    return 0;
+}

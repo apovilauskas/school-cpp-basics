@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+
+int main()
+{
+	std::ifstream fd("U1.txt");
+	std::ofstream fr("U1rez.txt");
+
+	int a,b;
+	fd >> a >> b;
+	std::vector<std::vector<int>> x(a, std::vector<int>(b));
+	for(int i=0; i<a; i++) {
+		for(int j=0; j<b; j++) {
+			int temp;
+			fd >> temp;
+			x[i][j] = temp;
+		}
+	}
+int sum=0;
+	for(int i=0; i<x.size(); i++) {
+		for(int j=0; j<x[i].size(); j++) {
+			sum+= x[i][j];
+		}
+	}
+fr << sum;
+
+	return 0;
+}
