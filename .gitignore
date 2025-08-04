@@ -1,0 +1,33 @@
+# Compiled executables
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.obj
+
+# Debug files
+*.pdb
+*.ilk
+
+# Visual Studio Code files (optional)
+.vscode/
+*.code-workspace
+
+# Input/Output files (optional - you might want to keep these)
+# *.txt
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
