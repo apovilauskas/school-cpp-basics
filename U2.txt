@@ -1,0 +1,14 @@
+2 3
+Pr 2
+10 14
+An 1
+12
+Jonas 2
+Pr 10
+An 12
+Milda 3
+Pr 10
+Pr 14
+An 12
+Domas 1
+Pr 10
